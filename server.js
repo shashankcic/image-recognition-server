@@ -77,11 +77,16 @@ app.post('/register',(req,res)=>{
 	bcrypt.hash(password, saltRounds, function(err, hash) {
  		console.log(hash);
 	});
-	db('users').insert({
+	db('users')
+	.returning('*')
+	.insert({
 		email:email,
 		name: name,
 		joined: new Date()
-	}).then(console.log)
+	})
+		.then(response => {
+			res.json(response);
+		})
 	// database.users.push({
 	// 	id: '125',
 	// 	name: name,
@@ -94,7 +99,7 @@ app.post('/register',(req,res)=>{
  //        	// Store hash in your password DB.
  //    	});
 	// });
-	res.json(database.users[database.users.length-1]);
+	// res.json(database.users[database.users.length-1]);
 })
 
 app.get('/profile/:id',(req, res)=> {
