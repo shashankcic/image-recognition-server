@@ -1,7 +1,7 @@
-const clarifaiKey =require('../config_keys');
+const config =require('../config_keys');
 const clarifai = require('clarifai');
 
-const clarifaiApi = clarifaiKey
+const clarifaiApi = config.clarifaiKey
 
 const app = new Clarifai.App({
   apiKey: clarifaiApi

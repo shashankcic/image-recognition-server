@@ -7,15 +7,13 @@ const register = require('./controllers/register.js');
 const signin = require('./controllers/signin.js');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image.js')
+const config =require('./config_keys');
+
+const connection=config.credentials
 
 const db = knex({
   client: 'pg',
-  connection: {
-    host : '127.0.0.1',
-    user : 'Shashank',
-    password : '123',
-    database : 'facerecognition'
-  }
+  connection: connection
 });
 
 const saltRounds = 10;
