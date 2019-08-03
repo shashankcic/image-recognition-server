@@ -1,4 +1,4 @@
-# Image Recognition (React Web App)
+# Image Recognition (React Web App) - BackEnd
 This is the backend for the image recognition app.
 
 ## How to use this
